@@ -21,12 +21,14 @@ let package = Package(
     targets: [
         .target(
             name: "iOSSnapshotTestCase",
-            dependencies: ["iOSSnapshotTestCaseCore"]
+            dependencies: ["iOSSnapshotTestCaseCore"],
+            linkerSettings: [.linkedFramework("XCTest")]
         ),
         .target(
             name: "iOSSnapshotTestCaseCore",
             exclude: ["Resources/FBSnapshotTestCase-Info.plist"],
-            publicHeadersPath: "Public"
+            publicHeadersPath: "Public",
+            linkerSettings: [.linkedFramework("XCTest")]
         ),
         .testTarget(
             name: "iOSSnapshotTestCaseTests",
